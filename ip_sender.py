@@ -1,4 +1,4 @@
-from socket import socket
+import socket
 from types import TracebackType
 from typing import Self
 

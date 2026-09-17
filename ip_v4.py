@@ -1,7 +1,7 @@
 import os
+import socket
 import struct
 from dataclasses import dataclass, field
-from socket import socket
 
 from utils import calculate_checksum
 

@@ -1,15 +1,15 @@
-from icmp_sender import ICMPSender
+from icmp import ICMPPacket
 from ip_sender import RawIPSender
 from ip_v4 import IPv4Packet
 
-if __name__ == '__main__' :
+if __name__ == '__main__' :    
     # 1. Build the ICMP payload (8B header + 56B data)
-    icmp_bytes = ICMPSender(sequence=1).build()
+    icmp_bytes = ICMPPacket(sequence=1).build()
 
     # 2. Encapsulate inside custom IPv4 header
     ip_packet = IPv4Packet(
-        source_ip="192.168.1.99",       # Custom source IP
-        destination_ip="192.168.1.1",    # Target destination IP
+        source_ip="192.168.1.42",       # Custom source IP
+        destination_ip="192.168.1.255",    # Target destination IP
         payload=icmp_bytes,
     ).build()
 
